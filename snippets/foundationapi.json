@@ -1,0 +1,473 @@
+{
+
+
+	"Foundation_Game": {
+        "prefix": "foundation",
+        "body": [
+          "foundation"
+        ],
+        "description": "Foundation Game"
+	},
+	"Foundation_Id": {
+        "prefix": "Id",
+        "body": [
+			"Id = \"${1:YOURID}\","
+		  ],
+        "description": "Foundation Unique ID"
+	},
+	"Foundation_createMod": {
+        "prefix": "createMod",
+        "body": [
+          "createMod({", "\tName = \"${1:Mod Name}\"", "\tAuthor = \"${2:The Author}\"", "\tDescription = \"${3:Mod Description}\"", "\tVersion = \"${4:1.0.0}\"", "});"
+        ],
+        "description": "Foundation Create new Mod"
+	},
+	"Foundation_registerAsset": {
+        "prefix": "registerAssetId",
+        "body": [
+          "registerAssetId(\"${1:YourAssetFolder}/${2:YourFile}.${3:fbx}\", \"${4:ID}\")"
+        ],
+        "description": "Foundation Register Asset"
+	},
+	"Foundation_registerBalancing": {
+        "prefix": "registerBalancing",
+        "body": [
+          "register({", "\tDataType = \"BALANCING\",", "\tId = \"${1:YOURBALANCING_ID}\",",  "\tName = \"${2:YOURNAME_ID}\",", "\tDayDurationInSeconds = ${3:60},", "\tInitialFamilyCount = ${4:4},", "\tMinimumHappinessForLeaving = ${5:100},", "\tBuildingCostOverrideList = {", "\t\t\"BUILDING_PART_COST_LIST_DEFAULT\",", "\t\t\"BUILDING_PART_COST_LIST_DEFAULT_LORD_MANOR\",", "\t\t\"BUILDING_PART_COST_LIST_DEFAULT_CHURCH\",", "\t\t\"BUILDING_PART_COST_LIST_DEFAULT_RUSTIC_CHURCH\",", "\t\t\"BUILDING_PART_COST_LIST_DEFAULT_KEEP\",", "\t\t\"${6:YOURCOSTLIST_ID}\"", "\t},", "\tBuildingProgressList = {", "\t\t\"BUILDING_PROGRESS_LIST_DEFAULT\",", "\t\t\"${7:YOURPROGRESSLIST_ID}\"", "\t},", "\tVillagerStatusQuota = \"${8:VILLAGER_STATUS_QUOTA_DEFAULT}\",", "\tTerritoryPrice = {", "\t\t{Resource = \"${9:GOLD}\", Quantity = ${10:0}}", "\t},", "\tTerritoryRoyalTaxesList = {", "\t\t{", "\t\t\t{Resource = \"${11:GOLD}\", Quantity = ${10:0}}", "\t\t}", "\t},", "\tStartingTileResourceRequirement = {", "\t\t{Resource = \"${12:STONE}\", Quantity = ${10:0}}", "\t},", "\tDelayedQuestList = { },", "\tTradingVillageList = \"${13:VILLAGE_LIST_DEFAULT}\",", "\tEventList = { },", "\tDaysBetweenEvents = ${14:30},", "\tDaysToFirstEvent = ${15:15},", "\tInitialGoldCapacity = ${16:500},", "\tTreeGrowSpeed = ${17:0.001f},", "\tTreeInitialScale = ${18:0.1f},", "\tTreeMinimumScaleToGather = ${19:0.75f},", "\tTreeMinimumScaleForHunt = ${19},", "\tTreeFertilityImpactHardRadius = ${20:3.5f},", "\tTreeFertilityImpactSoftRadius = ${15},", "\tTreeFertilityImpact = ${18}", "})"
+        ],
+        "description": "Foundation Register Balancing"
+	},
+	"Foundation_registerBuilding": {
+        "prefix": "registerBuilding",
+        "body": [
+          "register({", "\tDataType = \"BUILDING\",", "\tId = \"${1:BUILDING_ID}\",", "\tName = \"${2:IDNAME}\",", "\tDescription = \"${3:IDDESCRIPTION}\",", "\tBuildingType = \"${4:GENERAL}\",", "\tBuildingPartList = {\"${5:YOURPARTID}\"},", "\tBuildingUpgradeList = { },", "\tBuildingModel = ${6:nil},", "\tVillagerRequired = {{Status = \"${7:NEWCOMER}\", Quantity = ${8:0}}},", "\tDesirabilityLayer = ${9:nil},", "\tIsManuallyUnlocked = ${10:false},", "\tIsDestructible = ${11:true},", "\tIsEditable = ${12:false},", "\tIsHidden = ${13:false},", "\tMaterialSetList = { }", "})"
+        ],
+        "description": "Foundation Register Building"
+	},
+	"Foundation_registerBuildingPart": {
+        "prefix": "registerBuildingPart",
+        "body": [
+          "register({", "\tDataType = \"BUILDING_PART\",", "\tId = \"${1:BUILDINGPART_ID}\",", "\tName = \"${2:IDNAME}\",", "\tDescription = \"${3:IDDESCRIPTION}\",", "\tMiniature = ${4:nil},", "\tMover = { },", "\tConstructorData = {", "\t\tDataType = \"${6:BUILDING_CONSTRUCTOR_DEFAULT}\",",  "\t\tCoreObjectPrefab = \"${7:IDPREFAB}\" ", "\t},", "\tBuildingFunction = ${8:nil},", "\tBuildingZone = { ${9:1}, ${10:1}},", "\tConstructionVisual = \"${11:ID_PREFAB_CONSTRUCTION_STEPS}\",", "\tEstateSplendor = {{Estate = \"${18:CLERGY}\", Quantity = ${19:0}}},", "\tCost = {", "\t\tBuildRightTaxes = {", "\t\t\t{Resource = \"${14:STONE}\", Quantity = ${15:0}}", "\t\t},", "\t\tUpkeepCost = {", "\t\t\t{Resource = \"${14:WOOD}\", Quantity = ${15:0}}", "\t\t},", "\t\tRessourcesNeeded = {", "\t\t\t{Resource = \"${16:TOOLS}\", Quantity = ${17:0}}", "\t\t}", "\t},", "\tVillagerCapacity = ${20:0},", "\tDesirabilityModifiers = { }", "})"
+        ],
+        "description": "Foundation Register BuildingPart"
+	},
+	"Foundation_registerBuildingPartCostList": {
+        "prefix": "registerBuildingPartCostList",
+        "body": [
+          "register({", "\tDataType = \"BUILDING_PART_COST_LIST\",", "\tId = \"${1:BUILDINGPART_COST_LIST_ID}\",", "\tBuildingPartCostList = {", "\t\t{", "\t\t\tBuildingPart = \"${2:YOURBUILDINGPART_ID}\",", "\t\t\tBuildingPartCost = {", "\t\t\t\tBuildRightTaxes = {", "\t\t\t\t\t{Resource = \"${14:STONE}\", Quantity = ${15:0}}", "\t\t\t\t},", "\t\t\t\tUpkeepCost = {", "\t\t\t\t\t{Resource = \"${14:WOOD}\", Quantity = ${15:0}}", "\t\t\t\t},", "\t\t\t\tRessourcesNeeded = {", "\t\t\t\t\t{Resource = \"${16:TOOLS}\", Quantity = ${17:0}}", "\t\t\t\t}", "\t\t\t}", "\t\t}", "\t}", "})"
+        ],
+        "description": "Foundation Register BuildingPart"
+	},
+	"Foundation_BuildingCostOverrideList": {
+        "prefix": "BuildingCostOverrideList",
+        "body": [
+			"BuildingCostOverrideList = {", "\t\"BUILDING_PART_COST_LIST_DEFAULT\",", "\t\"BUILDING_PART_COST_LIST_DEFAULT_LORD_MANOR\",", "\t\"BUILDING_PART_COST_LIST_DEFAULT_CHURCH\",", "\t\"BUILDING_PART_COST_LIST_DEFAULT_RUSTIC_CHURCH\",", "\t\"BUILDING_PART_COST_LIST_DEFAULT_KEEP\",", "\t\"${6:YOURCOSTLIST_ID}\"", "},"
+        ],
+        "description": "BuildingCost OverrideList"
+	},
+	"Foundation_registerQuest": {
+        "prefix": "registerQuest",
+        "body": [
+          "register({", "\tDataType = \"QUEST\",", "\tId = \"${1:QUEST_ID}\",",  "\tName = \"${2:QUEST_NAME_ID}\",", "\tDescription = \"${3:QUEST_DESC_ID}\",", "\tQuestFunction = {", "\t\tDataType = \"${15:QUEST_FUNCTION_DELIVER_RESOURCES}\",", "\t\tEstate = \"${4:KINGDOM}\",", "\t\tResourceListToDeliver = {", "\t\t\t{Resource = \"${5:STONE}\", Quantity = ${6:0} }", "\t\t},", "\t\tDaysCount = ${7:60}", "\t},", "\tQuestRewardList = {", "\t\tQuestRewardResources({{ Resource = \"${8:WOOD}\", Quantity = ${9:5}}})", "\t},", "\tQuestFailList = { },", "\tOnSuccessCallback = nil,", "\tOnFailCallback = nil,", "\tIsSilent = ${10:false},", "\tQuestListToUnlockAfter = { }", "})"
+        ],
+        "description": "Foundation Register new Quest"
+	},
+	"Foundation_registerBuildingProgressList": {
+        "prefix": "registerBuildingProgressList",
+        "body": [
+          "register({", "\tDataType = \"BUILDING_PROGRESS_LIST\",", "\tId = \"${1:PROGRESS_LIST_ID}\",",  "\tProgressList = {", "\t\t{", "\t\t\tResBuilding = \"${2:BUILDING_BLACKSMITH}\",", "\t\t\tIsManuallyUnlocked = ${3:false},", "\t\t\tStatusQtyPair = {Status = \"${4:NEWCOMER}\", Quantity = ${5:0}}", "\t\t}", "\t}", "})"
+        ],
+        "description": "Foundation Register Building Progress List"
+	},
+	"Foundation_BuildingProgressList": {
+        "prefix": "BuildingProgressList",
+        "body": [
+			"BuildingProgressList = {", "\t\"BUILDING_PROGRESS_LIST_DEFAULT\",", "\t\"${7:YOURPROGRESSLIST_ID}\"", "},"
+        ],
+        "description": "Building ProgressList"
+	},
+	"Foundation_registerResource": {
+        "prefix": "registerResource",
+        "body": [
+          "register({", "\tDataType = \"RESOURCE\",", "\tId = \"${1:RESOURCE_ID}\",", "\tResourceName = \"${2:IDNAME}\",", "\tIcon = \"${3:IDICONASSET}\",", "\tResourceType = \"${4|FOOD,RESOURCE,GOLD,LUXURY,GOODS,SERVICE,PRIMARY_NEED,ENTERTAINMENT|}\",", "\tIsTradable = ${5:true},", "\tSellingPrice = ${6:1.0f},", "\tBuyingPrice = ${6:1.0f},", "\tVillagerBuyingPrice = {{Resource = \"${8:GOLD}\", Quantity = ${8:5}}},", "\tCanGoNegative = ${9:false},", "\tDisplayInInventory = ${10:true},", "\tDisplayInToolbar = ${11:false},", "\tDepositSoundEvent = \"ID\",", "\tGatheringSoundEvent = \"ID\",", "\tPlantingSoundEvent = \"ID\",", "\tConsumptionBehaviorOverride = nil,", "\tPrefab = nil,", "\tIsOnWater = ${12:false}", "})"
+        ],
+        "description": "Foundation Register Resource"
+	},
+	"Foundation_registerTradingVillageList": {
+        "prefix": "registerTradingVillageList",
+        "body": [
+          "register({", "\tDataType = \"TRADING_VILLAGE_LIST\",", "\tId = \"${1:VILLAGELIST_ID}\",",  "\tTradingVillageList = {", "\t\t\"${2:VILLAGE_DAVENPOR}\",", "\t\t\"${3:VILLAGE_NORTHBURY}\",", "\t\t\"${4:VILLAGE_AVIGNON}\",", "\t}", "})"
+        ],
+        "description": "Foundation Register Trading Villages List"
+	},
+	"Foundation_registerTradingVillage": {
+        "prefix": "registerTradingVillage",
+        "body": [
+          "register({", "\tDataType = \"TRADING_VILLAGE\",", "\tId = \"${1:VILLAGEID}\",", "\tVillageName = \"${2:The Village Name}\",", "\tUnlockCost = {", "\t\t{ Resource = \"${3:WOOD}\", Quantity = ${4:0}}", "\t},", "\tBuyingResourceList = {", "\t\t{", "\t\t\tResourceMaxAmount = {Resource = \"${5:WOOD}\", Quantity = ${6:0}},", "\t\t\tUnitPrice = {Resource = \"${7:GOLD}\", Quantity = ${8:0}}", "\t\t}", "\t},", "\tSellingResourceList = {", "\t\t{", "\t\t\tResourceMaxAmount = {Resource = \"${5:WOOD}\", Quantity = ${6:0}},", "\t\t\tUnitPrice = {Resource = \"${7:GOLD}\", Quantity = ${8:0}}", "\t\t}", "\t},", "\tAllegeance = \"${9:KINGDOM}\"", "})"
+        ],
+        "description": "Foundation Register Trading Village"
+        },
+        "Foundation_registerMaterial": {
+        "prefix": "registerMaterial",
+        "body": [
+	  "register({", "\tDataType = \"MATERIAL\",", "\tId = \"${1:MATERTIAL_ID}\",", "\tAlbedoTexture = \"${2:ASSET_ID}\",", "\tMetalnessTexture = \"${2}\",", "\tRoughnessTexture = \"${2}\",", "\tSpecularTexture = \"${2}\",", "\tNormalTexture = \"${2}\"", "})"
+        ],
+        "description": "Foundation Register Material"
+        },
+        "Foundation_registerWallConfig": {
+        "prefix": "registerWallConfig",
+        "body": [
+	  "register({", "\tDataType = \"WALL_CONFIG\",", "\tWallConfigName = \"${1:NAME_ID}\",", "\tMaterial = \"${2:MATERIAL_ID}\",", "\tMaterialTop = \"${2}\",", "\tCrenation = \"${3:PREFAB_WALL}\"", "})"
+        ],
+        "description": "Foundation Register Wall Configuration"
+        },
+        "Foundation_registerEvent": {
+        "prefix": "registerEvent",
+        "body": [
+	  "register({", "\tDataType = \"EVENT\",", "\tId = \"${1:EVENT_ID}\",", "\tTitle = \"${2:TITLE_ID}\",", "\tDescription = \"${3:DESC_ID}\",", "\tPanelVisual = \"${4:ILLUSTRATION_ESTATE_CHURCH}\",", "\tDelay = ${5:0},", "\tIsRecurrent = ${5:false},", "\tConditionList = {", "\t\t{", "\t\t\tDataType = \"${6:EVENT_CONDITION_BUILDING_BUILT}\",", "\t\t\tResBuilding = \"${7:BUILDING_ID}\"", "\t\t}", "\t},", "\tActionList = {", "\t\t{", "\t\t\tDataType = \"${8:EVENT_ACTION_GIVE_QUEST}\",", "\t\t\tShortName = \"${9:EVENT_ACTION_NAME_ID}\",", "\t\t\tEstateInfluenceModifierList = { },", "\t\t\tCallbackEvent = \"${10:CALLBACK_EVENT_ID}\",", "\t\t\tQuest = \"${11:QUEST_ID}\",", "\t\t\tOnSuccessEvent = \"${12:EVENT_ID}\",", "\t\t\tOnFailEvent = \"${12}\"", "\t\t}", "\t}", "})"
+        ],
+        "description": "Foundation Register Event"
+	},
+	"Foundation_functionQuestRewardResources": {
+        "prefix": "Foundation function QuestRewardResources",
+        "body": [
+          "function QuestRewardResources(resources)", "\treturn {", "\t\tDataType = \"QUEST_REWARD_RESOURCES\",", "\t\tResourceCollection = resources", "\t}", "end"
+        ],
+        "description": "Foundation Function for Quest Rewards"
+	},
+	"Foundation_BuildingType": {
+        "prefix": "BuildingType",
+        "body": [
+          "BuildingType = \"${1|GENERAL,MONUMENT,DECORATION,HOUSING|}\","
+        ],
+        "description": "Foundation Building Type"
+	},
+	"Foundation_BuildingPart": {
+        "prefix": "BuildingPart",
+        "body": [
+          "BuildingPart = \"${1:YOURPARTID}\","
+        ],
+        "description": "Foundation ID of BuildingPart"
+	},
+	"Foundation_BuildingPartList": {
+        "prefix": "BuildingPartList",
+        "body": [
+          "BuildingPartList = {\"${1:YOURPARTID}\"},"
+        ],
+        "description": "Foundation IDs of BuildingParts"
+	},
+	"Foundation_BuildingPartCostList": {
+        "prefix": "BuildingPartCostList",
+        "body": [
+			"BuildingPartCostList = {", "\t{", "\t\tBuildingPart = \"${2:YOURBUILDINGPART_ID}\",", "\t\tBuildingPartCost = {", "\t\t\tBuildRightTaxes = {", "\t\t\t\t{Resource = \"${14:STONE}\", Quantity = ${15:0}}", "\t\t\t},", "\t\t\tUpkeepCost = {", "\t\t\t\t{Resource = \"${14:WOOD}\", Quantity = ${15:0}}", "\t\t\t},", "\t\t\tRessourcesNeeded = {", "\t\t\t\t{Resource = \"${16:TOOLS}\", Quantity = ${17:0}}", "\t\t\t}", "\t\t}", "\t}", "},"
+        ],
+        "description": "Foundation List of BuildingParts Costs"
+	},
+	"Foundation_BuildingUpgradeList": {
+        "prefix": "BuildingUpgradeList",
+        "body": [
+          "BuildingPartList = { },"
+        ],
+        "description": "Foundation IDs of BuildingUpgradeLists"
+	},
+	"Foundation_BuildingModel": {
+        "prefix": "BuildingModel",
+        "body": [
+          "BuildingModel = ${1:nil},"
+        ],
+        "description": "Foundation IDs BuildingModel Asset "
+	},
+	"Foundation_BuildingZone": {
+        "prefix": "BuildingZone",
+        "body": [
+			"BuildingZone = { ${1:1}, ${2:1}},"
+        ],
+        "description": "Foundation The Zone of your building"
+	},
+	"Foundation_BuildingProgList": {
+        "prefix": "ProgressList",
+        "body": [
+			"ProgressList = {", "\t{", "\t\tResBuilding = \"${2:BUILDING_BLACKSMITH}\",", "\t\tIsManuallyUnlocked = ${3:false},", "\t\tStatusQtyPair = {Status = \"${4:NEWCOMER}\", Quantity = ${5:0}}", "\t}", "},"
+        ],
+        "description": "Foundation Buildings Progress List"
+	},
+	"Foundation_ConstructorData": {
+        "prefix": "ConstructorData",
+        "body": [
+			"ConstructorData = {", "\tDataType = \"${1:BUILDING_CONSTRUCTOR_DEFAULT}\",",  "\tCoreObjectPrefab = \"${2:IDPREFAB}\" ", "},"
+        ],
+        "description": "Foundation How the building part gets constructed "
+	},
+	"Foundation_Cost": {
+        "prefix": "Cost",
+        "body": [
+			"Cost = {", "\tBuildRightTaxes = {", "\t\t{Resource = \"${14:STONE}\", Quantity = ${15:0}}", "\t},", "\tUpkeepCost = {", "\t\t{Resource = \"${14:WOOD}\", Quantity = ${15:0}}", "\t},", "\tRessourcesNeeded = {", "\t\t{Resource = \"${16:TOOLS}\", Quantity = ${17:0}}", "\t}", "},"
+        ],
+        "description": "Foundation Cost List"
+	},
+	"Foundation_BuildRightTaxes": {
+        "prefix": "BuildRightTaxes",
+        "body": [
+			"BuildRightTaxes = {", "\t{Resource = \"${1:GOLD}\", Quantity = ${2:0}}", "},"
+        ],
+        "description": "Foundation BuildRightTaxes Cost List"
+	},
+	"Foundation_UpkeepCost": {
+        "prefix": "UpkeepCost",
+        "body": [
+			"UpkeepCost = {", "\t{Resource = \"${1:WOOD}\", Quantity = ${2:0}}", "},"
+        ],
+        "description": "Foundation Upkeep Cost List"
+	},
+	"Foundation_RessourcesNeeded": {
+        "prefix": "RessourcesNeeded",
+        "body": [
+			"RessourcesNeeded = {", "\t{Resource = \"${1:TOOLS}\", Quantity = ${2:0}}", "},"
+        ],
+        "description": "Foundation Upfront Cost List"
+	},
+	"Foundation_UnlockCost": {
+        "prefix": "UnlockCost",
+        "body": [
+			"UnlockCost = {", "\t{ Resource = \"${3:WOOD}\", Quantity = ${4:0}}", "},"
+        ],
+        "description": "Foundation UnlockCost List"
+	},
+	"Foundation_VillagerRequired": {
+        "prefix": "VillagerRequired",
+        "body": [
+          "VillagerRequired = {{Status = \"${7:NEWCOMER}\", Quantity = ${8:0}}},"
+        ],
+        "description": "Foundation Required villager of type list "
+	},
+	"Foundation_VillagerCapacity": {
+        "prefix": "VillagerCapacity",
+        "body": [
+			"VillagerCapacity = ${20:0},"
+        ],
+        "description": "Foundation Capacity of villagers"
+	},
+	"Foundation_VillagerStatusQuota": {
+        "prefix": "VillagerStatusQuota",
+        "body": [
+			"VillagerStatusQuota = \"${8:VILLAGER_STATUS_QUOTA_DEFAULT}\","
+        ],
+        "description": "Foundation VillagerStatus Quota"
+        },
+        "Foundation_QuestFunction": {
+        "prefix": "QuestFunction",
+        "body": [
+                "QuestFunction = {", "\tDataType = \"${1:QUEST_FUNCTION_DELIVER_RESOURCES}\",", "\tEstate = \"${4:KINGDOM}\",", "\tResourceListToDeliver = {", "\t\t{Resource = \"${5:STONE}\", Quantity = ${6:0} }", "\t},", "\tDaysCount = ${7:60}", "},"
+        ],
+        "description": "Foundation Quest Function"
+	},
+        "Foundation_DelayedQuestList": {
+        "prefix": "DelayedQuestList",
+        "body": [
+	  "DelayedQuestList = { },"
+        ],
+        "description": "Foundation DelayedQuest List"
+        },
+        "Foundation_ConditionList": {
+        "prefix": "ConditionList",
+        "body": [
+	  "ConditionList = {", "\t{", "\t\tDataType = \"${6:EVENT_CONDITION_BUILDING_BUILT}\",", "\t\tResBuilding = \"${7:BUILDING_ID}\"", "\t}", "},"
+        ],
+        "description": "Foundation Condition List"
+        },
+	"Foundation_Estate": {
+        "prefix": "Estate",
+        "body": [
+          "Estate = \"${1|CLERGY,KINGDOM,LABOUR|}\","
+        ],
+        "description": "Foundation Estate Type"
+	},
+	"Foundation_EstateSplendor": {
+        "prefix": "EstateSplendor",
+        "body": [
+			"EstateSplendor = {{Estate = \"${11:CLERGY}\", Quantity = ${12:0}}},"
+        ],
+        "description": "Foundation Estate Splendor List"
+	},
+	"Foundation_ResourceType": {
+        "prefix": "ResourceType",
+        "body": [
+          "ResourceType = \"${1|FOOD,RESOURCE,GOLD,LUXURY,GOODS,SERVICE,PRIMARY_NEED,ENTERTAINMENT|}\","
+        ],
+        "description": "Foundation Resource Type"
+	},
+	"Foundation_Resource": {
+        "prefix": "Resource",
+        "body": [
+          "Resource = \"${1|BEERBREAD,CLOTHES,COAL,FAITH,FLOUR,GLASS,GOLD,GRAPES,HEMP,HERBS,HOP,IRON,IRON_ORE,MARBLE,PLANK,QUARTZ,STONE,TOOL,WATER,WEAPON,WHEAT,WINE,WOOD,WOOL|}\","
+        ],
+        "description": "All exisitng Resources"
+	},
+	"Foundation_ResourceName": {
+        "prefix": "ResourceName",
+        "body": [
+          "ResourceName = \"${1:IDNAME}\","
+        ],
+        "description": "Foundation ID of Resource Name"
+	},
+	"Foundation_ResourceMaxAmount": {
+        "prefix": "ResourceMaxAmount",
+        "body": [
+			"ResourceMaxAmount = {Resource = \"${5:WOOD}\", Quantity = ${6:0}},"
+        ],
+        "description": "Foundation Max Resource Amount"
+	},
+	"Foundation_UnitPrice": {
+        "prefix": "UnitPrice",
+        "body": [
+			"UnitPrice = {Resource = \"${7:GOLD}\", Quantity = ${8:0}},"
+        ],
+        "description": "Foundation Unit Price"
+	},
+	"Foundation_VillageName": {
+        "prefix": "VillageName",
+        "body": [
+          "VillageName = \"${1:Your Village Name}\","
+        ],
+        "description": "Foundation Village Name"
+	},
+	"Foundation_TradingVillageList": {
+        "prefix": "TradingVillageList",
+        "body": [
+			"TradingVillageList = \"${13:VILLAGE_LIST_DEFAULT}\","
+        ],
+        "description": "Foundation List of trading villages"
+	},
+	"Foundation_TerritoryPrice": {
+        "prefix": "TerritoryPrice",
+        "body": [
+			"TerritoryPrice = {", "\t{Resource = \"${9:GOLD}\", Quantity = ${10:0}}", "},"
+        ],
+        "description": "Foundation Territory Price"
+	},
+	"Foundation_TerritoryRoyalTaxesList": {
+        "prefix": "TerritoryRoyalTaxesList",
+        "body": [
+			"TerritoryRoyalTaxesList = {", "\t{", "\t\t{Resource = \"${11:GOLD}\", Quantity = ${10:0}}", "\t}", "},"
+        ],
+        "description": "Foundation Territory RoyalTaxes List"
+	},
+	"Foundation_StartingTileResourceRequirement": {
+        "prefix": "StartingTileResourceRequirement",
+        "body": [
+			"StartingTileResourceRequirement = {", "\t{Resource = \"${12:STONE}\", Quantity = ${10:0}}", "},"
+        ],
+        "description": "Foundation StartingTile Resource Requirement"
+        },
+        "Foundation_PanelVisual": {
+        "prefix": "PanelVisual",
+        "body": [
+          "PanelVisual = \"${1|ILLUSTRATION_ESTATE_CHURCH,ILLUSTRATION_ESTATE_KING,ILLUSTRATION_ESTATE_LABOR,ILLUSTRATION_EVENT_WAR|}\","
+        ],
+        "description": "Foundation different Panel Visuals"
+	},
+	"Foundation_Name": {
+        "prefix": "Name",
+        "body": [
+          "Name = \"${1:IDNAME}\","
+        ],
+        "description": "Foundation ID of Name"
+	},
+	"Foundation_Status": {
+        "prefix": "Status",
+        "body": [
+          "Status = \"${1|CITIZEN,COMMONER,NEWCOMER,SERF|}\","
+        ],
+        "description": "Foundation Citizen Type"
+	},
+	"Foundation_Description": {
+        "prefix": "Description",
+        "body": [
+          "Description = \"${1:IDDESCRIPTION}\","
+        ],
+        "description": "Foundation ID of Description"
+	},
+	"Foundation_Quantity": {
+        "prefix": "Quantity",
+        "body": [
+          "Quantity = ${1:5},"
+        ],
+        "description": "Foundation Quantity"
+        },
+        "Foundation_Delay": {
+        "prefix": "Delay",
+        "body": [
+          "Delay = ${5:0},"
+        ],
+        "description": "Foundation Delay"
+        },
+        "Foundation_IsRecurrent": {
+        "prefix": "IsRecurrent",
+        "body": [
+          "IsRecurrent = ${5|false,true|},"
+        ],
+        "description": "Foundation is Event Recurrent"
+        },
+	"Foundation_DayDurationInSeconds": {
+        "prefix": "DayDurationInSeconds",
+        "body": [
+			"DayDurationInSeconds = ${3:60},"
+        ],
+        "description": "Foundation Day Duration in Seconds"
+	},
+	"Foundation_InitialFamilyCount": {
+        "prefix": "InitialFamilyCount",
+        "body": [
+			"InitialFamilyCount = ${4:4},"
+        ],
+        "description": "Foundation Initial FamilyCount"
+	},
+	"Foundation_MinimumHappinessForLeaving": {
+        "prefix": "MinimumHappinessForLeaving",
+        "body": [
+			"MinimumHappinessForLeaving = ${5:100},"
+        ],
+        "description": "Foundation Minimum Happiness for leaving"
+	},
+	"Foundation_EventList": {
+        "prefix": "EventList",
+        "body": [
+			"EventList = { },"
+        ],
+        "description": "Foundation Event List"
+	},
+	"Foundation_Icon": {
+        "prefix": "Icon",
+        "body": [
+          "Icon = \"${1:IDICON}\","
+        ],
+        "description": "Foundation ID of Icon Asset"
+	},
+	"Foundation_DataType": {
+        "prefix": "DataType",
+        "body": [
+          "DataType = \"${1|BALANCING,BEHAVIOR_TREE,BUILDING,BUILDING_PART,BUILDING_PART_COST_LIST,BUILDING_PROGRESS_LIST,BUILDING_UPGRADE,DESIRABILITY,ESTATE,EVENT,GENERAL_DATA,HAPPINESS_FACTOR,JOB,MATERIAL,MONUMENT,NOTIFICATION,PREFAB,QUEST,RESOURCE,RESOURCE_COLLECTION,TEXTURE,TRADING_VILLAGE,TRADING_VILLAGE_LIST,UNLOCKABLE,UNLOCKABLE_BUILDING,UNLOCKABLE_BUILDING_PART_LIST,UNLOCKABLE_WALL,VILLAGER_NEED_TYPE,VILLAGER_PORTRAIT,VILLAGER_PROFILE,VILLAGER_STATUS,VILLAGER_STATUS_QUOTA,WALL_CONFIG,ZONE,ASSEMBLAGE_CUSTOM_SET,ASSEMBLAGE_CUSTOM_SET_VALUE,ASSOCIATION_JOB_BEHAVIOR,BUILDING_CONSTRUCTOR,BUILDING_CONSTRUCTOR_ASSEMBLAGE,BUILDING_CONSTRUCTOR_BASEMENT,BUILDING_CONSTRUCTOR_BRIDGE,BUILDING_CONSTRUCTOR_DEFAULT,BUILDING_CONSTRUCTOR_RANDOM,BUILDING_CONSTRUCTOR_SCALER,BUILDING_FUNCTION,BUILDING_FUNCTION_BAILIFF_OFFICE,BUILDING_FUNCTION_BRIDGE,BUILDING_FUNCTION_CHURCH,BUILDING_FUNCTION_CHURCH_BELL,BUILDING_FUNCTION_FARM,BUILDING_FUNCTION_FISHING,BUILDING_FUNCTION_HOUSE,BUILDING_FUNCTION_INN,BUILDING_FUNCTION_LIVESTOCK_FARM,BUILDING_FUNCTION_LORD_HOUSE,BUILDING_FUNCTION_MARKET,BUILDING_FUNCTION_MONASTERY,BUILDING_FUNCTION_RESOURCE_GENERATOR,BUILDING_FUNCTION_TAX_OFFICE,BUILDING_FUNCTION_TRAINING_GROUND,BUILDING_FUNCTION_TREASURY,BUILDING_FUNCTION_VILLAGE_CENTER,BUILDING_FUNCTION_WAREHOUSE,BUILDING_FUNCTION_WORKPLACE,BUILDING_PART_COST,BUILDING_PART_COST_PAIR,BUILDING_PART_MOVER,BUILDING_PART_MOVER_BRIDGE,BUILDING_PART_MOVER_INSTANCE,BUILDING_PROGRESS,BUILDING_UPGRADE_SETUP,DELAYED_QUEST,DESIRABILITY_MODIFIER_ITEM,ESTATE_PROGRESS_STEP,ESTATE_QUANTITY_PAIR,ESTATE_STRING_ASSOCIATION,EVENT_ACTION,EVENT_ACTION_GIVE_QUEST,EVENT_ACTION_GIVE_REWARD,EVENT_ACTION_IGNORE,EVENT_ACTION_PAY,EVENT_CALLBACK,EVENT_CALLBACK_SIMPLE_PANEL,EVENT_CALLBACK_TRIGGER_EVENT,EVENT_CONDITION,EVENT_CONDITION_BUILDING_AVAILABLE,EVENT_CONDITION_BUILDING_BUILT,EVENT_CONDITION_RESOURCE_UNLOCKED,EVENT_CONDITION_VILLAGER_STATUS_REACHED,GAME_RULE_MODIFIER,GAME_RULE_MODIFIER_HAPPINESS,GAME_RULE_MODIFIER_JOB_LEARNING_SPEED,GAME_RULE_MODIFIER_MARKET_REV_SHARE,GAME_RULE_MODIFIER_MILITARY_TRAINING,MATERIAL_SET,PART_PROBABILITY,QUEST_FUNCTION,QUEST_FUNCTION_BALANCE,QUEST_FUNCTION_BUILD,QUEST_FUNCTION_CITY_STATUS,QUEST_FUNCTION_DELIVER_RESOURCES,QUEST_FUNCTION_SEND_TROOPS,QUEST_FUNCTION_UNLOCK_TRADE_ROUTE,QUEST_REWARD,QUEST_REWARD_GAME_RULE,QUEST_REWARD_INFLUENCE,QUEST_REWARD_MARKET_PRICES,QUEST_REWARD_RESOURCES,QUEST_REWARD_TERRITORY,RESOURCE_QUANTITY_PAIR,RESOURCE_TRADING_INFO,VILLAGER_STATUS_QUANTITY_PAIR,VILLAGER_STATUS_RATIO|}\","
+        ],
+        "description": "Foundation Data Type"
+	},
+	"Foundation_BuyingResourceList": {
+        "prefix": "BuyingResourceList",
+        "body": [
+			"BuyingResourceList = {", "\t{", "\t\tResourceMaxAmount = {Resource = \"${5:WOOD}\", Quantity = ${6:0}},", "\t\tUnitPrice = {Resource = \"${7:GOLD}\", Quantity = ${8:0}}", "\t}", "},"
+        ],
+        "description": "Foundation List of Resources the village buys"
+	},
+	"Foundation_SellingResourceList": {
+        "prefix": "SellingResourceList",
+        "body": [
+			"SellingResourceList = {", "\t{", "\t\tResourceMaxAmount = {Resource = \"${5:WOOD}\", Quantity = ${6:0}},", "\t\tUnitPrice = {Resource = \"${7:GOLD}\", Quantity = ${8:0}}", "\t}", "},"
+        ],
+        "description": "Foundation List of Resources the village sells"
+	},
+	"Foundation_Allegeance": {
+        "prefix": "Allegeance",
+        "body": [
+          "Allegeance = \"${1|CLERGY,KINGDOM,LABOUR|}\","
+        ],
+        "description": "Foundation Allegeance"
+	}
+}

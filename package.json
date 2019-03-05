@@ -1,0 +1,21 @@
+{
+    "name": "FoundationModdingApi",
+    "displayName": "Foundation Modding API",
+    "description": "Adds intelli Sense for Visual Studio for the Game Foundation to create Mods. It holds most of the functions and variables that can be used currently. www.simon-says.me",
+    "version": "1.0.1",
+    "publisher": "Simon-Says",
+    "engines": {
+        "vscode": "^1.31.0"
+    },
+    "categories": [
+        "Snippets"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "lua",
+                "path": "./snippets/foundationapi.json"
+            }
+        ]
+    }
+}
